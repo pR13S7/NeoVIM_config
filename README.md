@@ -6,7 +6,7 @@
 - XCode Command Line Tools
 - If working with typescript/javascript and the typescript language server like me. You might need to install node.
 
-If you're on mac, like me, you can install iTerm2, Neovim, Ripgrep and Node with homebrew.
+If you're on mac, install iTerm2, Neovim, Ripgrep and Node with homebrew.
 ```bash
 brew install --cask iterm2
 ```
@@ -25,21 +25,6 @@ For XCode Command Line Tools do:
 xcode-select --install
 ```
 
-### Nvim-Treesitter Updates
-When nvim-treesitter updates, there might be breaking changes to corresponding parsers being used. I made a change to make sure parsers are automatically updated whenever nvim-treesitter is installed/updated. The code is found in this file: [plugins-setup.lua](.config/nvim/lua/josean/plugins-setup.lua)
-
-The updated code is this:
-```lua
-use({
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-      ts_update()
-    end,
-  })
-
-```
-
 ## Plugins
 #### Plugin Manager
 - [wbthomason/packer](https://github.com/wbthomason/packer.nvim) - Popular plugin manager
@@ -48,7 +33,7 @@ use({
 - [nvim-lua/plenary](https://github.com/nvim-lua/plenary.nvim) - Useful lua functions other plugins use
 
 #### Preferred Colorscheme
-- [bluz71/vim-nightfly-guicolors](https://github.com/bluz71/vim-nightfly-guicolors)
+- [ellisonleao/gruvbox.nvim](https://github.com/bluz71/vim-nightfly-guicolors)
 
 #### Navigating Between Neovim Windows and Tmux
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
