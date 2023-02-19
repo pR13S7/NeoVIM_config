@@ -27,7 +27,6 @@ mason_lspconfig.setup({
 		"cssls",
 		"jsonls",
 		"tailwindcss",
-		"sumneko_lua",
 		"emmet_ls",
 		"elixirls",
 	},
