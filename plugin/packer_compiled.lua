@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/Users/vitalyandreev/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/Users/vitalyandreev/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/vitalyandreev/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
