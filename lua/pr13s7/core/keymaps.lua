@@ -22,22 +22,19 @@ keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
 -- toggle float terminal
 local Terminal = require("toggleterm.terminal").Terminal
-local lazydocker = Terminal:new({ cmd = "lazydocker", direction = "float", float_opts = {
-	border = "double",
-} })
+local lazydocker = Terminal:new({ cmd = "lazydocker", direction = "float" })
 function _lazydocker_toggle()
 	lazydocker:toggle()
 end
 
-local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", float_opts = {
-	border = "double",
-} })
+local lazygit = Terminal:new({ cmd = "lazygit", direction = "float" })
 function _lazygit_toggle()
 	lazygit:toggle()
 end
 
 keymap.set("n", "tt", ":ToggleTerm direction=float<CR>", opts) -- open floating terminal
-keymap.set("n", "td", "<cmd>lua _lazydocker_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazygit
+keymap.set("n", "tb", ":ToggleTerm<CR>", opts) -- open floating terminal from the bottom
+keymap.set("n", "td", "<cmd>lua _lazydocker_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazydocker
 keymap.set("n", "tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazygit
 
 -- window management
