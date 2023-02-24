@@ -16,3 +16,6 @@ require("pr13s7.plugins.lsp.null-ls")
 require("pr13s7.plugins.autopairs")
 require("pr13s7.plugins.treesitter")
 require("pr13s7.plugins.gitsigns")
+
+vim.opt.termguicolors = true
+require("bufferline").setup({})

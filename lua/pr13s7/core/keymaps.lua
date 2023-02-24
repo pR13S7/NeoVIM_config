@@ -20,6 +20,26 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
+-- toggle float terminal
+local Terminal = require("toggleterm.terminal").Terminal
+local lazydocker = Terminal:new({ cmd = "lazydocker", direction = "float", float_opts = {
+	border = "double",
+} })
+function _lazydocker_toggle()
+	lazydocker:toggle()
+end
+
+local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", float_opts = {
+	border = "double",
+} })
+function _lazygit_toggle()
+	lazygit:toggle()
+end
+
+keymap.set("n", "tt", ":ToggleTerm direction=float<CR>", opts) -- open floating terminal
+keymap.set("n", "td", "<cmd>lua _lazydocker_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazygit
+keymap.set("n", "tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazygit
+
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally

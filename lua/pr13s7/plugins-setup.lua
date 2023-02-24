@@ -127,6 +127,44 @@ return packer.startup(function(use)
 
 	use("kdheepak/lazygit.nvim")
 
+	use({
+		"goolord/alpha-nvim",
+		requires = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("alpha").setup(require("alpha.themes.startify").config)
+		end,
+	})
+	-- use({
+	-- 	"goolord/alpha-nvim",
+	-- 	config = function()
+	-- 		require("alpha").setup(require("alpha.themes.dashboard").config)
+	-- 	end,
+	-- })
+
+	-- using packer.nvim
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+
+	use({
+		"utilyre/barbecue.nvim",
+		tag = "*",
+		requires = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		after = "nvim-web-devicons", -- keep this if you're using NvChad
+		config = function()
+			require("barbecue").setup()
+		end,
+	})
+
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup()
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
