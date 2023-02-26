@@ -109,3 +109,13 @@ lspconfig["emmet_ls"].setup({
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "php" },
 })
+
+local servers = { "pyright" }
+for _, lsp in pairs(servers) do
+	require("lspconfig")[lsp].setup({
+		on_attach = on_attach,
+		flags = {
+			debounce_text_changes = 150,
+		},
+	})
+end
