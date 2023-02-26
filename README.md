@@ -4,6 +4,8 @@
 -   [Neovim](https://neovim.io/) (Version 0.8 or Later)
 -   [Nerd Font](https://www.nerdfonts.com/) - I use Meslo Nerd Font
 -   [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
+-   [lazygit](https://github.com/jesseduffield/lazygit/) - console UI for GIT
+-   [lazydocker](https://github.com/jesseduffield/lazydocker) - ciosole UI for DOcker
 -   XCode Command Line Tools
 -   If working with typescript/javascript and the typescript language server like me. You might need to install node.
 
