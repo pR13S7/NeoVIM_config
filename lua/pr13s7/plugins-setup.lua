@@ -125,6 +125,7 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+	-- start page
 	use({
 		"goolord/alpha-nvim",
 		requires = { "nvim-tree/nvim-web-devicons" },
@@ -132,16 +133,11 @@ return packer.startup(function(use)
 			require("alpha").setup(require("alpha.themes.startify").config)
 		end,
 	})
-	-- use({
-	-- 	"goolord/alpha-nvim",
-	-- 	config = function()
-	-- 		require("alpha").setup(require("alpha.themes.dashboard").config)
-	-- 	end,
-	-- })
 
-	-- using packer.nvim
+	-- tabs for buffers
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
+	-- VS Code like winbar that uses nvim-navic in order to get LSP context
 	use({
 		"utilyre/barbecue.nvim",
 		tag = "*",
@@ -155,6 +151,7 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- toggle term window
 	use({
 		"akinsho/toggleterm.nvim",
 		tag = "*",
