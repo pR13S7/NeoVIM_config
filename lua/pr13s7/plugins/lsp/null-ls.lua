@@ -24,6 +24,7 @@ null_ls.setup({
 		formatting.eslint_d,
 		formatting.sqlfluff,
 		diagnostics.markdownlint,
+		diagnostics.jsonlint,
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.json
 			condition = function(utils)
