@@ -5,9 +5,11 @@
 -   [Nerd Font](https://www.nerdfonts.com/) - I use Meslo Nerd Font
 -   [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
 -   [lazygit](https://github.com/jesseduffield/lazygit/) - console UI for GIT
--   [lazydocker](https://github.com/jesseduffield/lazydocker) - console UI for DOcker
--   XCode Command Line Tools
--   If working with typescript/javascript and the typescript language server like me. You might need to install node.
+-   [lazydocker](https://github.com/jesseduffield/lazydocker) - console UI for Docker
+-	[cpell](https://www.npmjs.com/package/cspell) - for spell check actions
+-	[codespell](https://github.com/codespell-project/codespell) - for missspelling in code
+-	XCode Command Line Tools
+-	If working with typescript/javascript and the typescript language server like me. You might need to install node.
 
 If you're on mac, install iTerm2, Neovim, Ripgrep and Node with homebrew.
 
@@ -92,23 +94,23 @@ xcode-select --install
 
 #### LSP Configuration
 
--   [williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) - Bridges gap b/w mason & lspconfig
--   [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Easy way to configure lsp servers
--   [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) - Smart code autocompletion with lsp
--   [glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) - Enhanced uis for lsp
--   [jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) - Additional functionality for typescript server
--   [onsails/lspkind.nvim](https://github.com/onsails/lspkind.nvim) - Vs Code Like Icons for autocompletion
+-	[williamboman/mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) - Bridges gap b/w mason & lspconfig
+-	[neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - Easy way to configure lsp servers
+-	[hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp) - Smart code autocompletion with lsp
+-	[glepnir/lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) - Enhanced uis for lsp
+-	[jose-elias-alvarez/typescript.nvim](https://github.com/jose-elias-alvarez/typescript.nvim) - Additional functionality for typescript server
+-	[onsails/lspkind.nvim](https://github.com/onsails/lspkind.nvim) - Vs Code Like Icons for autocompletion
 
 #### Formatting & Linting
 
--   [jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) - Easy way to configure formatters & linters
--   [jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim) - Bridges gap b/w mason & null-ls
+-	[jose-elias-alvarez/null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim) - Easy way to configure formatters & linters
+-	[jayp0521/mason-null-ls.nvim](https://github.com/jayp0521/mason-null-ls.nvim) - Bridges gap b/w mason & null-ls
 
 #### Syntax Highlighting & Autoclosing Things
 
--   [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Treesitter configuration
--   [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Autoclose brackets, parens, quotes, etc...
--   [windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) - Autoclose tags
+-	[nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Treesitter configuration
+-	[windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs) - Autoclose brackets, parens, quotes, etc...
+-	[windwp/nvim-ts-autotag](https://github.com/windwp/nvim-ts-autotag) - Autoclose tags
 
 #### Git
 
