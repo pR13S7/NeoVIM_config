@@ -117,5 +117,14 @@ for _, lsp in pairs(servers) do
 		flags = {
 			debounce_text_changes = 150,
 		},
+		settings = {
+			python = {
+				analysis = {
+					autoSearchPaths = true,
+					diagnosticMode = "workspace",
+					useLibraryCodeForTypes = true,
+				},
+			},
+		},
 	})
 end

@@ -32,10 +32,9 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+	use("ckipp01/stylua-nvim")
 
 	use("ellisonleao/gruvbox.nvim") -- preferred colorscheme
-
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
 
@@ -47,9 +46,8 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 
 	-- file explorer
-	use({
-		"nvim-tree/nvim-tree.lua",
-	})
+	use("nvim-tree/nvim-tree.lua")
+
 	-- vs-code like icons
 	use("nvim-tree/nvim-web-devicons")
 
@@ -70,23 +68,39 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path") -- source for file system paths
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") -- snippet engine
+	use("honza/vim-snippets")
+
+	use({
+		"L3MON4D3/LuaSnip",
+		-- install jsregexp (optional!:).
+		run = "make install_jsregexp",
+		config = function()
+			require("luasnip.loaders.from_snipmate").lazy_load()
+		end,
+	}) -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-	use("rafamadriz/friendly-snippets") -- useful snippets
+	use({
+		"rafamadriz/friendly-snippets",
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
+			require("luasnip.loaders.from_snipmate").lazy_load()
+		end,
+	}) -- useful snippets
 
 	-- managing & installing lsp servers, linters & formatters
 	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
 	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
+	use("mfussenegger/nvim-dap")
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
-		-- config = function()
-		-- 	require("lspsaga").setup({})
-		-- end,
+		config = function()
+			require("lspsaga").setup({})
+		end,
 		requires = {
 			{ "nvim-tree/nvim-web-devicons" },
 			--Please make sure you install markdown and markdown_inline parser
@@ -96,17 +110,18 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
-
-	use("onsails/lspkind-nvim")
-
-	use({
-		"williamboman/nvim-lsp-installer",
-	})
+	-- use("hrsh7th/cmp-vsnip")
+	-- use("hrsh7th/vim-vsnip")
+	-- use("williamboman/nvim-lsp-installer")
 
 	-- formatting & linting
-	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			require("null-ls").setup()
+		end,
+		requires = { "nvim-lua/plenary.nvim" },
+	}) -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
 	-- treesitter configuration
@@ -123,7 +138,20 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
 	-- git integration
-	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup({
+				current_line_blame = true,
+				current_line_blame_opts = {
+					virt_text = true,
+					virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+					delay = 1000,
+					ignore_whitespace = false,
+				},
+			})
+		end,
+	}) -- show line modifications on left hand side
 
 	-- start page
 	use({

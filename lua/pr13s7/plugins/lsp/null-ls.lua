@@ -8,6 +8,7 @@ end
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 local code_actions = null_ls.builtins.code_actions -- to setup code actions
+local completion = null_ls.builtins.completion
 
 -- to setup format on save
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -16,8 +17,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- setup formatters & linters
 	sources = {
-		--  to disable file types use
-		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+		completion.luasnip,
 		formatting.stylua, -- lua formatter
 		formatting.black, -- python formatter
 		formatting.deno_fmt,
@@ -27,7 +27,9 @@ null_ls.setup({
 		diagnostics.jsonlint,
 		diagnostics.cspell,
 		code_actions.cspell,
-		diagnostics.codespell,
+		diagnostics.flake8.with({
+			extra_args = { "--max-line-length=130" },
+		}),
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.json
 			condition = function(utils)
