@@ -16,6 +16,11 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- select all
+keymap.set("n", "<C-a>", "ggVG")
+-- delete without copying
+keymap.set("n", "<leader>d", '"_d')
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
@@ -36,6 +41,12 @@ keymap.set("n", "tt", ":ToggleTerm direction=float<CR>", opts) -- open floating 
 keymap.set("n", "tb", ":ToggleTerm<CR>", opts) -- open floating terminal from the bottom
 keymap.set("n", "td", "<cmd>lua _lazydocker_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazydocker
 keymap.set("n", "tg", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true }) -- open floating terminal with lazygit
+
+-- toggle diagnostics window
+keymap.set("n", "<leader>do", ":TroubleToggle<CR>", opts) -- open diagnostics window
+keymap.set("n", "<leader>dr", ":TroubleRefresh<CR>", opts) -- refresh diagnostics window
+keymap.set("n", "<leader>dw", ":TroubleToggle workspace_diagnostics<CR>", opts) -- diagnostics for workspace
+keymap.set("n", "<leader>dq", ":TroubleToggle quickfix<CR>", opts) -- diagnostics for workspace
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
