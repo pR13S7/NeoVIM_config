@@ -13,7 +13,11 @@ local plugins = {
         "lua-language-server",
         "html-lsp",
         "stylua",
-        "pyright"
+        "pyright",
+        "typescript-language-server",
+        "biome",
+        "gopls",
+        "emmet_ls"
       },
     },
   }

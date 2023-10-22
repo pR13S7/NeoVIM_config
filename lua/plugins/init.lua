@@ -119,6 +119,9 @@ local default_plugins = {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    dependencies = {
+      'WhoIsSethDaniel/mason-tool-installer.nvim'
+    },
     opts = function()
       return require "plugins.configs.mason"
     end,
