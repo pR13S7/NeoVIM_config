@@ -1,21 +1,21 @@
-require("pr13s7.core.options")
-require("pr13s7.core.keymaps")
-require("pr13s7.core.colorscheme")
+require "core"
 
-require("pr13s7.plugins-setup")
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
 
-require("pr13s7.plugins.comment")
-require("pr13s7.plugins.nvim-tree")
-require("pr13s7.plugins.lualine")
-require("pr13s7.plugins.telescope")
-require("pr13s7.plugins.nvim-cmp")
-require("pr13s7.plugins.lsp.mason")
-require("pr13s7.plugins.lsp.lspsaga")
-require("pr13s7.plugins.lsp.lspconfig")
-require("pr13s7.plugins.lsp.null-ls")
-require("pr13s7.plugins.autopairs")
-require("pr13s7.plugins.treesitter")
-require("pr13s7.plugins.gitsigns")
+if custom_init_path then
+  dofile(custom_init_path)
+end
 
-vim.opt.termguicolors = true
-require("bufferline").setup({})
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
